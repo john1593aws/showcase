@@ -5,7 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"npm run server\" \"npm run client\""
+    "front-end-start": "npm start --prefix front-end",
+    "back-end-start": "npm start --prefix back-end",
+    "start": "concurrently \"npm run back-end-start\" \"npm run front-end-start\"",
+    "front-end-build": "npm run build --prefix front-end",
+    "back-end-build": "npm run build --prefix back-end",
+    "build": "concurrently \"npm run back-end-build\" \"npm run front-end-build\"",
+    "front-end-dev": "npm start --prefix front-end",
+    "back-end-dev": "nodemon --prefix back-end",
+    "dev": "concurrently \"npm run back-end-dev\" \"npm run front-end-dev\""
   },
   "author": "",
   "license": "ISC",
